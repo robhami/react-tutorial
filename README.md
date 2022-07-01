@@ -94,6 +94,12 @@ export default App
 ```
 - These props can now be called in the Table.js file/component. Can see the data in React Components:
 
+![This is an image](https://github.com/robhami/react-tutorial/blob/main/readme%20data/props_in_table.PNG)
+
+
+- Can also call it with `this.props`, i.e. can do a `console.log(this.props)` to see what is in the props.
+
+
 
 
 
