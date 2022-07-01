@@ -104,6 +104,7 @@ export default App
 
 
 - Create a variable that contains const {characterData} = this.props
+- {characterData} is used as variable name, because we are only passing one prop and this defines which prop
 ```
 class Table extends Component {
   render() {
