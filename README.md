@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# React Tutorial
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Components
+2 types: 
 
-## Available Scripts
+### Class Components
 
-In the project directory, you can run:
+- Uses Class keyword 
+- Must Render
+- Return can only return one parent element
 
-### `npm start`
+```
+class Table extends Component {
+  render() {
+    return (
+      <table>
+        <TableHeader />
+        <TableBody />
+      </table>
+    )
+  }
+}
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Simple Components 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- A function 
+- Does NOT use class keyword
 
-### `npm test`
+```
+const TableHeader = () => {
+  return (
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Job</th>
+      </tr>
+    </thead>
+  )
+}
+```
+If return contained on one line it does not need parenthesis.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Create App.js and App component with PROPS and Array of objects defined
 
-### `npm run build`
+- Array of objects defined in App class component (at this stage) as a variable called `characters`. 
+- This can be passed as a PROP to the Table component by adding it to the `<Table/>` element in the App (not sure if this can only be done in class components).
+- These props can now be called in the Table.js file/component. 
+- We can call property whatever we want, below `characterData` is choosen. 
+- the variable name `characters` is put into curly brackets because it is a JS expression
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+ <Table characterData={characters}/>
+```
+The App.js will look like this:  
+```
+import React, {Component} from 'react'
+import Table from './Table.js'
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+class App extends Component {
+  render() {
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    const characters = [
+      {
+        name: 'Charlie',
+        job: 'Janitor',
+      },
+      {
+        name: 'Mac',
+        job: 'Bouncer',
+      },
+      {
+        name: 'Dee',
+        job: 'Aspring actress',
+      },
+      {
+        name: 'Dennis',
+        job: 'Bartender',
+      },
+    ]
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    return (
+      <div className="container">
+{/* This passes data through to the table element, so it can now be called there. Curly braces used because its a JS expression */}
+        <Table characterData={characters}/>
+     </div> 
+    )
+  }
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default App
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+- These props can now be called in the Table.js file/component. Can see the data in React Components:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Create a variable that contains const {characterData} = this.props
+```
+class Table extends Component {
+  render() {
+    const {characterData} = this.props
 
-### Code Splitting
+    return (
+      <table>
+        <TableHeader />
+        <TableBody characterData={characterData} />
+      </table>
+    )
+  }
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
