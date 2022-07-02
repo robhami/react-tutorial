@@ -119,4 +119,21 @@ class Table extends Component {
   }
 }
 ```
+- Use MAP to pass PROPS through as a parameter
+- Pass it to a row variable which will retuen as an expression:
+
+```
+const TableBody = (props) => {
+  const rows = props.characterData.map((row, index) => {
+    return (
+      <tr key={index}>
+        <td>{row.name}</td>
+        <td>{row.job}</td>
+      </tr>
+    )
+  })
+
+  return <tbody>{rows}</tbody>
+}
+```
 
