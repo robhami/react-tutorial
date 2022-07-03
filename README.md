@@ -142,4 +142,4 @@ const TableBody = (props) => {
 
 ## State
 
-- Props are a one way data flow const characters --> Table --> const {characterData} --> TableBody --> const rows --> map to <td/> --> return mapped <tbody/>
+- Props are a one way data flow const characters --> `<Table/>` --> const {characterData} --> <TableBody/> --> const rows --> map to `<td/>` --> return mapped `<tbody/>`
