@@ -142,8 +142,10 @@ const TableBody = (props) => {
 
 ## State
 
-- Props are a one way data flow const characters --> `<Table/>` --> const {characterData} --> <TableBody/> --> const rows --> map to `<td/>` --> return mapped `<tbody/>`
-- Create a state then move const characters array to state:
+- Props are a one way data flow:
+-  const characters --> `<Table/>` --> const {characterData} --> <TableBody/> --> const rows --> map to `<td/>` --> return mapped `<tbody/>`
+-  Need to use state to change data in props
+- Create a state then move const characters array to state to create `state.characters`:
 
 ```
 class App extends Component {
@@ -169,3 +171,20 @@ class App extends Component {
     ],
   }
 ```
+Create method called `removeCharacter`:
+
+```
+removeCharacter = (index) => {
+  const {characters} = this.state
+
+  this.setState({
+    characters: characters.filter((character, i) => {
+      return i !== index
+    }),
+  })
+}
+```
+- To retrieve state use `this.state.characters`
+- To update state use `this.state()`
+- Filter array based on index. Testing an index vs. all indicies in arrayand returning all but the one that is passed through
+- Filter does not mutate but creates a new array- preferred method for modifying arrays in JS.
