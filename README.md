@@ -143,3 +143,29 @@ const TableBody = (props) => {
 ## State
 
 - Props are a one way data flow const characters --> `<Table/>` --> const {characterData} --> <TableBody/> --> const rows --> map to `<td/>` --> return mapped `<tbody/>`
+- Create a state then move const characters array to state:
+
+```
+class App extends Component {
+
+  state={
+    characters:[
+         {
+        name: 'Charlie',
+        job: 'Janitor',
+      },
+      {
+        name: 'Mac',
+        job: 'Bouncer',
+      },
+      {
+        name: 'Dee',
+        job: 'Aspring actress',
+      },
+      {
+        name: 'Dennis',
+        job: 'Bartender',
+      },
+    ],
+  }
+```
