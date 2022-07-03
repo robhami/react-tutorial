@@ -120,7 +120,8 @@ class Table extends Component {
 }
 ```
 - Use MAP to pass PROPS through as a parameter
-- Pass it to a row variable which will retuen as an expression:
+- Add key index to each row for id purposes
+- Pass it to a row variable which will return as an expression:
 
 ```
 const TableBody = (props) => {
@@ -137,3 +138,8 @@ const TableBody = (props) => {
 }
 ```
 
+- Component cannot change props, this is done by state.
+
+## State
+
+- Props are a one way data flow const characters --> Table --> const {characterData} --> TableBody --> const rows --> map to <td/> --> return mapped <tbody/>
