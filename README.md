@@ -184,7 +184,21 @@ removeCharacter = (index) => {
   })
 }
 ```
-- To retrieve state use `this.state.characters`
+- To retrieve state use `this.state` not sure why she said : `this.state.characters`
 - To update state use `this.state()`
 - Filter array based on index. Testing an index vs. all indicies in arrayand returning all but the one that is passed through
 - Filter does not mutate but creates a new array- preferred method for modifying arrays in JS.
+
+-Pass `removeCharacter` function through as a prop to `Table`:
+
+```
+render() {
+  const { characters } = this.state
+
+  return (
+    <div className="container">
+      <Table characterData={characters} removeCharacter={this.removeCharacter} />
+    </div>
+  )
+}
+```
